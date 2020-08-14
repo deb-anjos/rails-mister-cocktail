@@ -1,0 +1,21 @@
+<%= link_to 'Home', root_path %>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <h1 class="mb-4"><%= @cocktail.name %></h1>
+      <ul class="list-group list-group-flush mb-4">
+        <% @cocktail.doses.each do |dose| %>
+        <li class="list-group-item">
+          <%= dose.ingredient.name %>
+          <%= dose.description %>
+          <%= link_to 'delete', dose_path(dose), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </li>
+       <% end %>
+      </ul>
+
+<%= link_to 'Add new ingredient', new_cocktail_dose_path(@cocktail) %>
+
+    </div>
+  </div>
+</div>

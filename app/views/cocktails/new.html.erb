@@ -1,0 +1,16 @@
+<%= link_to 'Home', root_path %>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <h1 class="mb-4">Create a new cocktail</h1>
+      <%= simple_form_for @cocktail do |f|%>
+        <%= f.input :name %>
+        <%= f.button :submit, "Add", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+

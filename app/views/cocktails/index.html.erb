@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row justify-content-center mb-4">
+    <div class="col-8">
+      <h1 class="mb-4 mt-4">All cocktails</h1>
+      <ul class="list-group mb-4">
+        <% @cocktails.each do |cocktail| %>
+        <li style="list-style-type: none"><%= link_to cocktail.name, cocktail_path(cocktail) %></li>
+        <% end %>
+        </ul>
+        <%= link_to 'Add a new cocktail', new_cocktail_path  %>
+    </div>
+  </div>
+</div>
+
+
+
+
