@@ -1,18 +1,39 @@
-<div class="container">
-  <div class="row justify-content-center mb-4">
-    <div class="col-8">
-      <h1 class="mb-4 mt-4">All cocktails</h1>
-      <ul class="list-group mb-4">
-        <% @cocktails.each do |cocktail| %>
-        <li style="list-style-type: none"><%= link_to cocktail.name, cocktail_path(cocktail) %></li>
-        <% end %>
-        </ul>
-         <%= link_to 'Add a new cocktail', new_cocktail_path,
-        { :class => "btn btn-primary" }   %>
-    </div>
+<!-- banner -->
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
+     url(https://res.cloudinary.com/deb-anjos/image/upload/v1597529948/l54aunt09nyb2taqipdu.jpg);">
+  <div class="container">
+    <h1>Welcome to Debilicious!</h1>
+    <p>Find a drink. Create a drink. Have fun!</p>
+    <a class="btn btn-flat btn-sm" href="/cocktails/new">Add a drink</a>
+    <a class="btn btn-flat-2 btn-sm" href="#selection">Selection</a>
   </div>
 </div>
 
+<!-- Selection -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top mb-4" id="selection">
+  <a class="nav-link" style="color: #4A4A4A; opacity: 0.6" href="/">home</a>
+  <a class="nav-link" style="color: #4A4A4A; opacity: 0.6" href="/cocktails/new">add new</a>
+</nav>
+
+<div class="container" style="height: 100vh">
+  <div class="row justify-content-center">
+    <div class="col">
+      <div class="cards">
+        <% @cocktails.each do |cocktail| %>
+          <a href="/cocktails/<%= cocktail.id %>">
+          <div class="card-category" style="height: 200px;
+            background-size: cover;
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+            url(<%= cl_image_path cocktail.photo.key, height: 200, width: 300, crop: :fill %>)">
+            <div id="cocktail-name"><%= cocktail.name %></div>
+          </div>
+          </a>
+        <% end %>
+    </div>
+  </div>
+</div>
 
 
 
